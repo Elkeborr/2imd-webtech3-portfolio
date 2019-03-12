@@ -1,0 +1,51 @@
+/*MOBILE FIRST*/
+* {
+    box-sizing: border-box;
+  }
+
+/*NAVIGATIE*/
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+ 
+}
+
+nav .logo{
+    width: 100%;   
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type:none;
+    flex-wrap: wrap;
+    text-align: center;
+
+}
+nav ul:not(.logo){
+    flex-grow: 1;
+}
+
+nav ul li {
+    padding:1em;
+}
+
+/*PHOTOS*/
+
+#photos{
+    display:flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+}
+#photos div{
+    padding: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100px;
+}
+

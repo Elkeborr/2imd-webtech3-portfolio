@@ -4,3 +4,7 @@
 ##Lab 1 - git 
 
 [Link foto's]()
+
+##Lab 2 
+
+##Lab 3
