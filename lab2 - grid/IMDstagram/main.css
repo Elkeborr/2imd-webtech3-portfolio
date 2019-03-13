@@ -29,7 +29,7 @@ nav ul:not(.logo){
 }
 
 nav ul li {
-    padding:1em;
+    padding:10px;
 }
 
 /*PHOTOS*/
@@ -43,8 +43,6 @@ nav ul li {
 }
 #photos div{
     padding: 10px;
-    flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100px;
 }
-
