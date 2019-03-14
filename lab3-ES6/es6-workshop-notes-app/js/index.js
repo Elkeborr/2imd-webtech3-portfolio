@@ -1,36 +1,48 @@
 class Note {
   constructor(title) {
-
     this.title = title;
     this.element = this.createElement(title);
     // HINT🤩 this.element = this.createElement(title);
-   
+  
   }
+
+
+
+
   createElement(title){
-
+ // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    
     let newNote = document.createElement('div');
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    newNote.innerHTML = "<p>"+this.notesText+"</p>"+
+    let notesText =document.getElementById('txtAddNote').value;
+   
+    newNote.innerHTML = "<p>"+notesText+"</p>"+
     "<a href='#' class='card-remove'>"+"Remove"+"</a>";
-    newNote.classList.add("card");
-
-    a.addEventListener('click', this.remove.bind(newNote));
+    console.log(notesText);
+    newNote.classList.add("card"); 
+    let btn =document.getElementById('btnAddNote');
+    btn.addEventListener('click', this.remove.bind(newNote));
     return newNote;
+    
   }
+
+
+
+
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
+
     document.querySelector('notes').appendChild(this.newNote);
   }
   
+
+
   saveToStorage(){
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-
- 
-const note = JSON.stringify(newNote);
-localStorage.setItem(note);
+    
+    window.localStorage.setItem('note', JSON.stringify(newNote));
 
 
   }
@@ -41,6 +53,7 @@ localStorage.setItem(note);
 
   } 
 }
+let notes = new Note();
 
 class App {
   constructor() {
@@ -59,9 +72,16 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-
+    let i;
+    for ( i = 0; i < localStorage.length; i++){
+      window.localStorage.getItem('note')
+      note.add();
+      
+  }
   }
    
+
+
   createNote(e){
     // this function should create a new note by using the Note() class
     
@@ -72,12 +92,14 @@ class App {
 
    note.add();
    note.saveToStorage();
+   this.reset();
   }
   
   reset(){
     // this function should reset the form 
+    document.querySelector(form).reset();
   }
   
 }
 
-let app = new App();
+//let app = new App();
