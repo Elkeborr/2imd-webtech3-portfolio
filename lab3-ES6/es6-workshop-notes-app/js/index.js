@@ -6,33 +6,38 @@ class Note {
   
   }
 
-
-
-
   createElement(title){
  // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
     
+        // nieuw html element creëren
+        let Text= document.getElementById('txtAddNote');
     let newNote = document.createElement('div');
-    let notesText =document.getElementById('txtAddNote').value;
-   
-    newNote.innerHTML = "<p>"+notesText+"</p>"+
+        // wat moet er in het element
+    newNote.innerHTML = "<p>"+Text+"</p>"+
     "<a href='#' class='card-remove'>"+"Remove"+"</a>";
-    console.log(notesText);
+        // note de juiste klasse meegeven 
     newNote.classList.add("card"); 
-    let btn =document.getElementById('btnAddNote');
-    btn.addEventListener('click', this.remove.bind(newNote));
-    return newNote;
+
+/* NIET SNAPPEN
+  let i =0;
+  new Promise( (resolve, reject) => {
+      setTimeout( () => {
+
+        let btn = document.getElementsByTagName("a");
+        btn[i].addEventListener('click', this.remove.bind(this.title));
+i++;
+      }, 5000 )
+      }); 
+*/
+  return newNote;
     
   }
-
-
-
 
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
 
-    document.querySelector('notes').appendChild(this.newNote);
+    document.querySelector('.notes').appendChild(this.newNote);
   }
   
 
@@ -42,8 +47,7 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     
-    window.localStorage.setItem('note', JSON.stringify(newNote));
-
+  localStorage.setItem('notes', JSON.stringify(newNote));
 
   }
   
@@ -53,13 +57,18 @@ class Note {
 
   } 
 }
-let notes = new Note();
+
+
 
 class App {
   constructor() {
     console.log("👊🏼 The Constructor!");
 
-  
+    this.btnAdd = document.getElementById('btnAddNote');
+    this.btnAdd.addEventListener("click", this.createNote.bind(this));
+    this.Text = document.getElementById('txtAddNote');
+    this.loadNotesFromStorage();
+
     // HINT🤩
     // clicking the button should work
     // pressing the enter key should also work
@@ -74,8 +83,8 @@ class App {
     // something like note.add() in a loop would be nice
     let i;
     for ( i = 0; i < localStorage.length; i++){
-      window.localStorage.getItem('note')
-      note.add();
+      JSON.parse(localStorage.getItem('notes')); 
+ 
       
   }
   }
@@ -90,9 +99,7 @@ class App {
     // note.saveToStorage();
     // this.reset();
 
-   note.add();
-   note.saveToStorage();
-   this.reset();
+   
   }
   
   reset(){
@@ -102,4 +109,4 @@ class App {
   
 }
 
-//let app = new App();
+let app = new App();
