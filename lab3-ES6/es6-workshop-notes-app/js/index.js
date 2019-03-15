@@ -12,18 +12,29 @@ class Note {
         // nieuw html element creëren
     let newNote = document.createElement('div');
     // wat moet er in het element
-    let text =document.getElementById('txtAddNote').value;
-    newNote.innerHTML = "<p>"+ `${text}`+"</p>"+
-        "<a href='#' class='card-remove'>"+"Remove"+"</a>";
+    //let text =document.getElementById('txtAddNote').value;
+    /*newNote.innerHTML = "<p>"+ `${this.title}`+"</p>";
+       "<a href='#' class='card-remove'>"+"Remove"+"</a>"; 
+       => als we dit gebruiken kunnen we niet elke btn en tekst apart aanspreken*/
+
     // note de juiste klasse meegeven 
     newNote.classList.add("card");
     
         //de knop removen doen werken, zo verwijderen we de "verbinding"
-        let remove = document.getElementsByTagName("a");
-  
-        for (let i = 0; i < remove.length; i++) {
-                remove[i].addEventListener('click', this.remove.bind(newNote));
-        }
+        //knop aanspreken en aanmaken
+        let removeBtn = document.createElement('a');
+        removeBtn.setAttribute("href", "#")
+        removeBtn.innerHTML= 'Remove';
+       
+        removeBtn.addEventListener('click', this.remove.bind(newNote));
+
+        let tekst = document.createElement('p');
+        tekst.innerHTML = this.title;
+
+        newNote.appendChild(tekst);
+        newNote.appendChild(removeBtn);
+        
+        
         return newNote;
     
   }
@@ -41,7 +52,10 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    let text =document.getElementById('txtAddNote').value;
+ 
+  let text =document.getElementById('txtAddNote').value;
+  
+    
     localStorage.setItem('notes', JSON.stringify(text));
   
   }
@@ -78,7 +92,7 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-    let i;
+    let i= document.getElementById('txtAddNote').value;
     for ( i = 0; i < localStorage.length; i++){
     let note = new Note ();
     JSON.parse(localStorage.getItem('notes'));
