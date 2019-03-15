@@ -78,7 +78,8 @@ class Note {
     // in this function, 'this' will refer to the current note element
 
 let note = this;
-this.classList.add("card-remove");
+this.classList.replace("card","card-remove");
+
 this.newNote = localStorage.removeItem(this.element);
     
 
@@ -113,8 +114,8 @@ class App {
 
     for ( let i = 0; i < localStorage.length; i++){
       let note = new Note ();
-     // let arrStored =  JSON.parse(localStorage.getItem(`${this.arrStored}`));
-     // note.add(this.title);
+    let arrStored =  JSON.parse(localStorage.getItem(`${this.key}`, `${this.arrNote}`));
+      note.add([ i ]);
       
   }
   }
