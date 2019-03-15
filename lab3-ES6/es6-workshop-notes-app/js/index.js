@@ -11,14 +11,19 @@ class Note {
     
         // nieuw html element creëren
         let Text= document.getElementById('txtAddNote');
-    let newNote = document.createElement('div');
+        let newNote = document.createElement('div');
         // wat moet er in het element
-    newNote.innerHTML = "<p>"+Text+"</p>"+
-    "<a href='#' class='card-remove'>"+"Remove"+"</a>";
+        newNote.innerHTML = "<p>"+Text+"</p>"+
+            "<a href='#' class='card-remove'>"+"Remove"+"</a>";
         // note de juiste klasse meegeven 
-    newNote.classList.add("card"); 
+        newNote.classList.add(".card"); 
 
-  return newNote;
+        let remove = document.getElementsByTagName("a");
+        for (var i = 0; i < remove.length; i++) {
+                remove[i].addEventListener('click', this.remove.bind(newNote));
+        }
+        
+        return newNote;
     
   }
 
@@ -26,7 +31,8 @@ class Note {
     // HINT🤩
     // this function should append the note to the screen somehow
 
-    document.querySelector('.notes').appendChild(this.newNote);
+    document.querySelector('.notes').appendChild(newNote);
+
   }
   
 
@@ -35,24 +41,29 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    
-  localStorage.setItem('notes', JSON.stringify(newNote));
-
+    let text =document.getElementById('txtAddNote').value;
+    localStorage.setItem('note', JSON.stringify(text));
+  
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+     
+
+
 
   } 
 }
 
 
 
+
+
 class App {
   constructor() {
     console.log("👊🏼 The Constructor!");
-
+  
     this.btnAdd = document.getElementById('btnAddNote');
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
     this.Text = document.getElementById('txtAddNote');
@@ -72,7 +83,7 @@ class App {
     // something like note.add() in a loop would be nice
     let i;
     for ( i = 0; i < localStorage.length; i++){
-      JSON.parse(localStorage.getItem('notes')); 
+     //note.add (JSON.parse(localStorage.getItem('notes')));
  
       
   }
@@ -83,6 +94,11 @@ class App {
   createNote(e){
     // this function should create a new note by using the Note() class
     
+   
+    let note = new Note();
+    note.saveToStorage();
+note.add();
+this.reset();
     // HINT🤩
     // note.add();
     // note.saveToStorage();
