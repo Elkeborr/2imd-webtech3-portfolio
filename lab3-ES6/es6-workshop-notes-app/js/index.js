@@ -12,6 +12,7 @@ class Note {
         // nieuw html element creëren
     let newNote = document.createElement('div');
     // wat moet er in het element
+
     //let text =document.getElementById('txtAddNote').value;
     /*newNote.innerHTML = "<p>"+ `${this.title}`+"</p>";
        "<a href='#' class='card-remove'>"+"Remove"+"</a>"; 
@@ -48,15 +49,14 @@ class Note {
   }
   
 
-  saveToStorage(){
+  saveToStorage(callback){
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
- 
-  let text =document.getElementById('txtAddNote').value;
-  
-    
-    localStorage.setItem('notes', JSON.stringify(text));
+
+  //  let arrnotes = [];
+   // localStorage.setItem( itemIndex, JSON.stringify(arrnotes) );
+    //localStorage.setItem('notes', JSON.stringify(text));
   
   }
   
