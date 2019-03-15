@@ -18,17 +18,6 @@ class Note {
         // note de juiste klasse meegeven 
     newNote.classList.add("card"); 
 
-/* NIET SNAPPEN
-  let i =0;
-  new Promise( (resolve, reject) => {
-      setTimeout( () => {
-
-        let btn = document.getElementsByTagName("a");
-        btn[i].addEventListener('click', this.remove.bind(this.title));
-i++;
-      }, 5000 )
-      }); 
-*/
   return newNote;
     
   }
