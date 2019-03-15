@@ -12,14 +12,16 @@ class Note {
         // nieuw html element creëren
     let newNote = document.createElement('div');
     // wat moet er in het element
-    newNote.innerHTML = "<p>"+ "HIER MOET INPUT TEKST KOMEN"+"</p>"+
+   
+    newNote.innerHTML = "<p>"+ `${this.title}`+"</p>"+
         "<a href='#' class='card-remove'>"+"Remove"+"</a>";
     // note de juiste klasse meegeven 
     newNote.classList.add("card");
     
         //de knop removen doen werken, zo verwijderen we de "verbinding"
         let remove = document.getElementsByTagName("a");
-        for (var i = 0; i < remove.length; i++) {
+  
+        for (let i = 0; i < remove.length; i++) {
                 remove[i].addEventListener('click', this.remove.bind(newNote));
         }
         return newNote;
@@ -29,6 +31,7 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
+
  // we gebruiker this element omdat deze al geconnecteerd staat met de createelement functie
     document.querySelector('.notes').appendChild(this.element);
   }
@@ -47,8 +50,8 @@ class Note {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
 
-    let remove = localStorage.removeItem('notes');
-    let index = remove.indexOf(this);
+   this.newNote = localStorage.removeItem(this.element);
+    
 
 
   } 
@@ -88,10 +91,10 @@ class App {
 
   createNote(e){
     // this function should create a new note by using the Note() class
-    
-    this.note.saveToStorage();
-    this.note.add();
-    this.reset();
+    let note = new Note ();
+note.saveToStorage();
+note.add();
+  this.reset();
 
     // HINT🤩
     // note.add();
