@@ -1,6 +1,6 @@
 class Note {
   constructor(title) {
-    this.title = title;
+    this.title=title;
     this.element = this.createElement(title);
     // HINT🤩 this.element = this.createElement(title);
   
@@ -8,21 +8,20 @@ class Note {
 
   createElement(title){
  // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    
-        // nieuw html element creëren
-        let Text= document.getElementById('txtAddNote');
-        let newNote = document.createElement('div');
-        // wat moet er in het element
-        newNote.innerHTML = "<p>"+Text+"</p>"+
-            "<a href='#' class='card-remove'>"+"Remove"+"</a>";
-        // note de juiste klasse meegeven 
-        newNote.classList.add(".card"); 
 
+        // nieuw html element creëren
+    let newNote = document.createElement('div');
+    // wat moet er in het element
+    newNote.innerHTML = "<p>"+ "HIER MOET INPUT TEKST KOMEN"+"</p>"+
+        "<a href='#' class='card-remove'>"+"Remove"+"</a>";
+    // note de juiste klasse meegeven 
+    newNote.classList.add("card");
+    
+        //de knop removen doen werken, zo verwijderen we de "verbinding"
         let remove = document.getElementsByTagName("a");
         for (var i = 0; i < remove.length; i++) {
                 remove[i].addEventListener('click', this.remove.bind(newNote));
         }
-        
         return newNote;
     
   }
@@ -30,35 +29,30 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
-
-    document.querySelector('.notes').appendChild(newNote);
-
+ // we gebruiker this element omdat deze al geconnecteerd staat met de createelement functie
+    document.querySelector('.notes').appendChild(this.element);
   }
   
-
 
   saveToStorage(){
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     let text =document.getElementById('txtAddNote').value;
-    localStorage.setItem('note', JSON.stringify(text));
+    localStorage.setItem('notes', JSON.stringify(text));
   
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-     
 
+    let remove = localStorage.removeItem('notes');
+    let index = remove.indexOf(this);
 
 
   } 
 }
-
-
-
-
 
 class App {
   constructor() {
@@ -83,8 +77,9 @@ class App {
     // something like note.add() in a loop would be nice
     let i;
     for ( i = 0; i < localStorage.length; i++){
-     //note.add (JSON.parse(localStorage.getItem('notes')));
- 
+    let note = new Note ();
+    JSON.parse(localStorage.getItem('notes'));
+    note.add([i]);
       
   }
   }
@@ -94,11 +89,10 @@ class App {
   createNote(e){
     // this function should create a new note by using the Note() class
     
-   
-    let note = new Note();
-    note.saveToStorage();
-note.add();
-this.reset();
+    this.note.saveToStorage();
+    this.note.add();
+    this.reset();
+
     // HINT🤩
     // note.add();
     // note.saveToStorage();
