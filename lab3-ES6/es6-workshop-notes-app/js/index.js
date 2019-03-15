@@ -49,7 +49,7 @@ class Note {
   }
   
 
-  saveToStorage(callback){
+  saveToStorage(){
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
@@ -57,8 +57,20 @@ class Note {
   //  let arrnotes = [];
    // localStorage.setItem( itemIndex, JSON.stringify(arrnotes) );
     //localStorage.setItem('notes', JSON.stringify(text));
+
+    let key = 0;
+    for (var i = 0; i < localStorage.length; i++) {
+      key++;
+    }
   
-  }
+  let arrNote = [];
+  arrNote.push(this.title);
+
+      localStorage.setItem(`${key}`, `${arrNote}`);
+    }
+//:JSON.stringify(arrNote)
+  
+  
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
@@ -91,17 +103,17 @@ class App {
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
+
     // something like note.add() in a loop would be nice
-    let i= document.getElementById('txtAddNote').value;
-    for ( i = 0; i < localStorage.length; i++){
-    let note = new Note ();
-    JSON.parse(localStorage.getItem('notes'));
-    note.add([i]);
+
+    for ( let i = 0; i < localStorage.length; i++){
+      let note = new Note ();
+      JSON.parse(localStorage.getItem('notes'));
+      note.add([i]);
       
   }
   }
    
-
 
   createNote(e){
     // this function should create a new note by using the Note() class
@@ -118,7 +130,6 @@ class App {
   
   reset(){
     // this function should reset the form 
-    
     document.querySelector('form').reset();
   }
   
