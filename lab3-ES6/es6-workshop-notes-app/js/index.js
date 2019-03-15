@@ -18,11 +18,9 @@ class Note {
        "<a href='#' class='card-remove'>"+"Remove"+"</a>"; 
        => als we dit gebruiken kunnen we niet elke btn en tekst apart aanspreken*/
 
-    // note de juiste klasse meegeven 
-    newNote.classList.add("card");
-    
         //de knop removen doen werken, zo verwijderen we de "verbinding"
         //knop aanspreken en aanmaken
+
         let removeBtn = document.createElement('a');
         removeBtn.setAttribute("href", "#")
         removeBtn.innerHTML= 'Remove';
@@ -35,7 +33,9 @@ class Note {
         newNote.appendChild(tekst);
         newNote.appendChild(removeBtn);
         
-        
+        // note de juiste klasse meegeven 
+        newNote.classList.add("card");
+       
         return newNote;
     
   }
@@ -66,9 +66,10 @@ class Note {
   let arrNote = [];
   arrNote.push(this.title);
 
-      localStorage.setItem(`${key}`, `${arrNote}`);
+
+     let arrStored =  localStorage.setItem(`${key}`, JSON.stringify(`${arrNote}`));
     }
-//:JSON.stringify(arrNote)
+
   
   
   
@@ -76,7 +77,9 @@ class Note {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
 
-   this.newNote = localStorage.removeItem(this.element);
+let note = this;
+this.classList.add("card-remove");
+this.newNote = localStorage.removeItem(this.element);
     
 
 
@@ -89,7 +92,7 @@ class App {
   
     this.btnAdd = document.getElementById('btnAddNote');
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
-    this.Text = document.getElementById('txtAddNote');
+    
     this.loadNotesFromStorage();
 
     // HINT🤩
@@ -106,18 +109,23 @@ class App {
 
     // something like note.add() in a loop would be nice
 
+    
+
     for ( let i = 0; i < localStorage.length; i++){
       let note = new Note ();
-      JSON.parse(localStorage.getItem('notes'));
-      note.add([i]);
+     // let arrStored =  JSON.parse(localStorage.getItem(`${this.arrStored}`));
+     // note.add(this.title);
       
   }
   }
    
 
   createNote(e){
+
+    let innerText= document.querySelector('#txtAddNote').value;
+
     // this function should create a new note by using the Note() class
-    let note = new Note ();
+    let note = new Note (innerText);
     note.saveToStorage();
     note.add();
     this.reset();
