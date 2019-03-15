@@ -72,12 +72,8 @@ class meme{
        // http://version1.api.memegenerator.net//MgImages_Search?q=insanity&apiKey=demo
         let urlmeme = `https://cors-anywhere.herokuapp.com/http://version1.api.memegenerator.net//MgImages_Search?q=insanity&${this.API_KEY2}`;
         console.log(urlmeme);
-
-       
-
         
 /* urlmeme geeft een array terug in json met daarin een nummer die dan in de img geplakt moet worden*/
-      // let photo = `https://memegenerator.net/img/images/2623.jpg`
 
  fetch(urlmeme)
         .then(response =>{
@@ -85,9 +81,9 @@ class meme{
         })
         .then(json=>{
             console.log(json);
-            let meme = document.createElement("img");
-            let image =`https://memegenerator.net/img/images/200x/${json.elapsedMS}`;
-            meme.innerHTML = `<a href= ${image}/>`;
+            let meme = document.createElement("div");
+            let image =`https://memegenerator.net/img/images/${json.elapsedMS}.jpg`;
+            meme.innerHTML = ` <img src= '${image}'>`;
             document.querySelector("body").appendChild(meme);
         })
 
