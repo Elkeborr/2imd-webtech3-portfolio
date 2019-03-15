@@ -12,8 +12,8 @@ class Note {
         // nieuw html element creëren
     let newNote = document.createElement('div');
     // wat moet er in het element
-   
-    newNote.innerHTML = "<p>"+ `${this.title}`+"</p>"+
+    let text =document.getElementById('txtAddNote').value;
+    newNote.innerHTML = "<p>"+ `${text}`+"</p>"+
         "<a href='#' class='card-remove'>"+"Remove"+"</a>";
     // note de juiste klasse meegeven 
     newNote.classList.add("card");
@@ -92,21 +92,20 @@ class App {
   createNote(e){
     // this function should create a new note by using the Note() class
     let note = new Note ();
-note.saveToStorage();
-note.add();
-  this.reset();
+    note.saveToStorage();
+    note.add();
+    this.reset();
 
     // HINT🤩
     // note.add();
     // note.saveToStorage();
     // this.reset();
-
-   
   }
   
   reset(){
     // this function should reset the form 
-    document.querySelector(form).reset();
+    
+    document.querySelector('form').reset();
   }
   
 }
