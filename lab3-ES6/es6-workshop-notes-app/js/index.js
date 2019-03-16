@@ -62,14 +62,10 @@ class Note {
     for (var i = 0; i < localStorage.length; i++) {
       key++;
     }
-
-  
    
       let arrNote = [];
       arrNote.push(this.title);
       localStorage.setItem(`${key}`, JSON.stringify(`${arrNote}`));
-
-   // localStorage.setItem(`${key}`, JSON.stringify(`${arrNote}`));
     
     }
 
@@ -79,25 +75,16 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    //console.log(Object.keys(`${this.arrNote}`));
+  
+  for (let i = 0; i < localStorage.length; i++) {
 
-    /*let arrStored =JSON.stringify((localStorage.getItem(Object.keys(`${this.arrNote}`))));
-    console.log( arrStored );
-    let deletedItem = localStorage.removeItem(arrStored);*/
-   // console.log(deletedItem );
+  let key = localStorage.key(i);
+  //console.log(key);
+  localStorage.removeItem(key);
 
+  }
 
-//this.classList.replace("card","card-remove");
-
-//this.newNote = JSON.parse(localStorage.removeItem(`${this.key}`));
-
-let notesremove = JSON.parse(localStorage.getItem(Object.keys(`${this.arrNote}`)));
-    
-let index = notesremove.indexOf(this);
-
-console.log(index);
-
-
+let note =this.newNote.classList.add("fade-out-animation");
   } 
 }
 
@@ -124,14 +111,11 @@ class App {
 
     // something like note.add() in a loop would be nice
 
-    
-   
-
-    for (let i = 0; i < localStorage.length; i++) {
+      for (let i = 0; i < localStorage.length; i++) {
       let key = localStorage.key(i);
-      console.log(key);
+      //console.log(key);
       let text = JSON.parse(localStorage.getItem(key));
-      console.log(text);
+      //console.log(text);
       let note = new Note(text);
       note.add();
 

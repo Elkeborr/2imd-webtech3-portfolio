@@ -1,3 +1,29 @@
 .card{margin: 1em; flex: 0 1 20%;}
 .notes{align-items: center;}
 .card-remove{display:inline-block;}
+
+
+.fade-out-animation{
+    animation-name: fade-out;
+    animation-duration: 2s;
+
+}
+
+@-keyframes fade-out {
+
+	0% {
+        position: absolute;
+        opacity: 0;
+      }
+    
+      75% {
+        position: absolute;
+        top: 25%;
+        opacity: 1;
+      }
+    
+      100% {
+        opacity: 0;
+      }
+    }
+    
