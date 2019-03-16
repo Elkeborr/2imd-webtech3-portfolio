@@ -58,16 +58,19 @@ class Note {
    // localStorage.setItem( itemIndex, JSON.stringify(arrnotes) );
     //localStorage.setItem('notes', JSON.stringify(text));
 
-    let key = 0;
+  let key = 0;
     for (var i = 0; i < localStorage.length; i++) {
       key++;
     }
+
   
-  let arrNote = [];
-  arrNote.push(this.title);
+   
+      let arrNote = [];
+      arrNote.push(this.title);
+      localStorage.setItem(`${key}`, JSON.stringify(`${arrNote}`));
 
-
-     let arrStored =  localStorage.setItem(`${key}`, JSON.stringify(`${arrNote}`));
+   // localStorage.setItem(`${key}`, JSON.stringify(`${arrNote}`));
+    
     }
 
   
@@ -76,12 +79,23 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    //console.log(Object.keys(`${this.arrNote}`));
 
-let note = this;
-this.classList.replace("card","card-remove");
+    /*let arrStored =JSON.stringify((localStorage.getItem(Object.keys(`${this.arrNote}`))));
+    console.log( arrStored );
+    let deletedItem = localStorage.removeItem(arrStored);*/
+   // console.log(deletedItem );
 
-this.newNote = localStorage.removeItem(this.element);
+
+//this.classList.replace("card","card-remove");
+
+//this.newNote = JSON.parse(localStorage.removeItem(`${this.key}`));
+
+let notesremove = JSON.parse(localStorage.getItem(Object.keys(`${this.arrNote}`)));
     
+let index = notesremove.indexOf(this);
+
+console.log(index);
 
 
   } 
@@ -111,15 +125,19 @@ class App {
     // something like note.add() in a loop would be nice
 
     
-
-    for ( let i = 0; i < localStorage.length; i++){
-      let note = new Note ();
-    let arrStored =  JSON.parse(localStorage.getItem(`${this.key}`, `${this.arrNote}`));
-      note.add([ i ]);
-      
-  }
-  }
    
+
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      console.log(key);
+      let text = JSON.parse(localStorage.getItem(key));
+      console.log(text);
+      let note = new Note(text);
+      note.add();
+
+    }
+  
+  }
 
   createNote(e){
 

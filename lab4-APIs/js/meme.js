@@ -15,7 +15,7 @@ class meme{
 
     getMeme(){
 
-        let q; 
+     /*   let q; 
         let wheater=document.getElementsByTagName('h1').value;
         console.log (wheater);
 if (wheater === "Drizzle"){
@@ -25,7 +25,7 @@ if (wheater === "Drizzle"){
 }else {
     q="help";
 }
-console.log (q);
+console.log (q);*/
 
         let urlmeme = `https://cors-anywhere.herokuapp.com/http://version1.api.memegenerator.net//MgImages_Search?${q}&${this.API_KEY2}`;
         console.log(urlmeme);
