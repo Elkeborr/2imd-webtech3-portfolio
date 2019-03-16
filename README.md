@@ -16,3 +16,17 @@
 
 [Codepen - Grid-ticket ](https://codepen.io/elkeborr/pen/zbpLKg?editors=1100)
 
+
+### ES6
+
+[Link lab3 - Notes App](https://github.com/Elkeborr/2imd-webtech3-portfolio/tree/master/lab3-ES6)
+
+[Codepen - Notes App](https://codepen.io/elkeborr/pen/xBYNqz)
+
+### API
+
+[Link lab4 - API app](https://github.com/Elkeborr/2imd-webtech3-portfolio/tree/master/lab4-APIs)
+
+[Codepen - API app](https://codepen.io/elkeborr/pen/PLeEae)
+
+
