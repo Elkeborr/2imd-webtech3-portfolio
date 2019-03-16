@@ -4,26 +4,8 @@
 
 
 .fade-out-animation{
-    animation-name: fade-out;
-    animation-duration: 2s;
+    
+    display: none;
 
 }
 
-@-keyframes fade-out {
-
-	0% {
-        position: absolute;
-        opacity: 0;
-      }
-    
-      75% {
-        position: absolute;
-        top: 25%;
-        opacity: 1;
-      }
-    
-      100% {
-        opacity: 0;
-      }
-    }
-    

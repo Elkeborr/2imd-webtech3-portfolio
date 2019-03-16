@@ -62,7 +62,6 @@ class Note {
     for (var i = 0; i < localStorage.length; i++) {
       key++;
     }
-   
       let arrNote = [];
       arrNote.push(this.title);
       localStorage.setItem(`${key}`, JSON.stringify(`${arrNote}`));
@@ -81,10 +80,10 @@ class Note {
   let key = localStorage.key(i);
   //console.log(key);
   localStorage.removeItem(key);
-
   }
 
-let note =this.newNote.classList.add("fade-out-animation");
+
+this.classList.add("fade-out-animation");
   } 
 }
 
