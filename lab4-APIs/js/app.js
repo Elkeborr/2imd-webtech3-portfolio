@@ -10,7 +10,7 @@ class Weather{
 
     initialize(){
         // eerste stap is de locatie opvragen
-        // aanmakene van een nieuwe fucntie die we buiten deze gaan aanmaken
+        // aanmaken van een nieuwe fucntie die we buiten deze gaan aanmaken
         this.getMyLocation();
         console.log(navigator);
     }
@@ -32,7 +32,7 @@ class Weather{
     });
     }
 
-// je moet zien dat de parameters ook worden opgevangen
+
     getWeather(lat, lng){
         //ajax call / XHR
         //https://api.darksky.net/forecast/70cbb5b3805551203ecfbda0653231af/37.8267,-122.4233
