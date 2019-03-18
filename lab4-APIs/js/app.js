@@ -44,9 +44,19 @@ class Weather{
         })
         .then(json=>{
             console.log(json);
+            let div = document.createElement("div");
+            div.classList.add("temp")
+            
             let temp = document.createElement("h1");
+            let p = document.createElement ("p");
+
             temp.innerHTML = json.currently.summary;
-            document.querySelector("body").appendChild(temp);
+            p.innerHTML = json.currently.temperature + " &degc";
+            console.log(p);
+            document.querySelector("body").appendChild(div);
+
+            div.appendChild(temp);
+            div.appendChild(p);
         })
     }
 
@@ -54,4 +64,50 @@ class Weather{
 // let hier mee op want nu kan iedereen u key zien, normaal zitten die op de server 
 
 let app = new Weather('70cbb5b3805551203ecfbda0653231af');
+
+class meme{
+
+    constructor(API_KEY2){
+        // in gang zetten van de app 
+        this.API_KEY2 = API_KEY2;
+        console.log("jow2");
+        this.initialize();
+    }
+
+    initialize(){
+        this.getMeme();
+        
+    }
+   
+
+    getMeme(){
+
+let urlmeme = `https://cors-anywhere.herokuapp.com/http://version1.api.memegenerator.net//MgImages_Search?q=cat&${this.API_KEY2}`;
+
+        
+/* urlmeme geeft een array terug in json met daarin een nummer die dan in de img geplakt moet worden*/
+
+ fetch(urlmeme)
+        .then(response =>{
+            return response.json();
+        })
+        .then(json=>{
+            console.log(json);
+            let meme = document.createElement("div");
+            let image =`https://memegenerator.net/img/images/${json.elapsedMS}.jpg`;
+            meme.innerHTML = ` <img src= '${image}'>`;
+            document.querySelector("body").appendChild(meme);
+        })
+
+
+
+}
+
+}
+let app2 = new meme('fc8cf925-afd7-47c3-8762-6477731415f0');
+
+// http://version1.api.memegenerator.net//MgImages_Search?q=insanity&apiKey=demo
+
+//https://memegenerator.net/img/images/2623.jpg
+
 
