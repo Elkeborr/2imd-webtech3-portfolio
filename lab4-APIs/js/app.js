@@ -82,6 +82,8 @@ class meme{
 
     getMeme(){
 
+        /*  Search werkt niet, er kunnen heel random foto's te voorschijn komen, sorry hiervoor
+        Ik ga kijken voor een andere api voor memes*/
 let urlmeme = `https://cors-anywhere.herokuapp.com/http://version1.api.memegenerator.net//MgImages_Search?q=cat&${this.API_KEY2}`;
 
         
