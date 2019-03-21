@@ -9,8 +9,11 @@ body {
 #box{
     display: grid;
     height: 300px;
+    width: 800px;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 50% 50%;
+    margin-left: auto;
+  margin-right: auto;
 }
 
 .today{
@@ -75,4 +78,5 @@ img{
     grid-column-start: 1;
     grid-column-end: 3;
     height: 300px;
+    margin-left:20px;
 }

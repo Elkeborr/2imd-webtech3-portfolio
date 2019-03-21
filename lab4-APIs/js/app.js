@@ -103,23 +103,7 @@ class meme{
    
 
     getMeme(){
-        let q ='cat'; 
-        let tekst= this.temp;
-    
-        if (tekst === 'Mostly Cloudy'){
-            q = 'clouds';
-       
-
-        }else if(tekst === 'Rain'){
-            q = 'sad';
-         
-        }else if(tekst === 'Sunny'){
-            q = 'happy';
-           
-        }
-        console.log(q);
-        console.log(tekst);
-
+        let q ='weather'; 
 let urlmeme = `https://cors-anywhere.herokuapp.com/http://version1.api.memegenerator.net//Generators_Search?q=${q}&pageIndex=0&pageSize=12&apiKey=${this.API_KEY2}`;
 
         
@@ -132,7 +116,8 @@ fetch(urlmeme)
         .then(json=>{
             console.log(json);
             let meme = document.createElement("div");
-            let imageID = (json.result[2]["imageID"]);
+            let id = Math.floor(Math.random() * 12) + 0  ;
+            let imageID = (json.result[id]["imageID"]);
             let image =`https://memegenerator.net/img/images/${imageID}.jpg`;
             
             meme.innerHTML = ` <img src= '${image}'>`;
