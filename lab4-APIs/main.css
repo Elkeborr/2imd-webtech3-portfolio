@@ -12,8 +12,17 @@ body {
     width: 800px;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 50% 50%;
-    margin-left: auto;
-  margin-right: auto;
+   
+    grid-gap: 20px;
+
+position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+
 }
 
 .today{
@@ -39,7 +48,7 @@ body {
     font-size: 1.3em;
     font-weight: 700;
     border-bottom: 1px solid;
-    text-align: center;
+    text-align: right;
     padding-bottom: 4px;
     color: #5DFDCB;
 }
@@ -66,7 +75,7 @@ padding: 20px;
     font-size: 1.3em;
     font-weight: 700;
     border-bottom: 1px solid;
-    text-align: center;
+    text-align: right;
     padding-bottom: 4px;
     color: #4C85FF;
 }
@@ -77,6 +86,6 @@ img{
     
     grid-column-start: 1;
     grid-column-end: 3;
-    height: 300px;
-    margin-left:20px;
+    height: 320px;
+   
 }
