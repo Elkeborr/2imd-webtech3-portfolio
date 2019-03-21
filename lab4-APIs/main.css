@@ -3,19 +3,27 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #030305;
     
+ 
+}
+
+#box{
+    display: grid;
+    height: 300px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50% 50%;
 }
 
 .today{
 
-    width: 350px;
-    height: 100px;
 
+     grid-column-start: 1;
+    grid-column-end: 3;
     color:white;
-    margin-top: 135px;
-    margin-left: 183px;
-
     padding: 20px;
+
+
     border: solid 2px #5DFDCB;
+
 }
 
 .today p {
@@ -35,30 +43,36 @@ body {
 
 
 .tomorrow{
-
-    width: 350px;
-    height: 100px;
-
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
     color:white;
-    margin-top: 135px;
-    margin-left: 183px;
+padding: 20px;
 
-    padding: 20px;
-    border: solid 2px #5DFDCB;
+    border: solid 2px #4C85FF;
 }
 
-.today p {
+.tomorrow p {
     margin-top: 10px;
     text-align: right;
 
 }
 
-.today h1{
+.tomorrow h1{
     font-size: 1.3em;
     font-weight: 700;
     border-bottom: 1px solid;
     text-align: center;
     padding-bottom: 4px;
-    color: #5DFDCB;
+    color: #4C85FF;
 }
 
+img{
+    grid-row-start:1 ;
+    grid-row-end:2 ;
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: 300px;
+}

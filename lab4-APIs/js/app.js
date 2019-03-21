@@ -46,8 +46,9 @@ class Weather{
             console.log(json);
             let div1 = document.createElement("div");
             let div2 = document.createElement("div");
+
             div1.classList.add("today");
-            div1.classList.add("tomorrow");
+            div2.classList.add("tomorrow");
             
          
             let temp = document.createElement("h1");
@@ -65,14 +66,19 @@ class Weather{
             + "Min temperature:  " + json.daily.data[1].temperatureLow+ " &degc" ;
            
             console.log(p);
-            document.querySelector("body").appendChild(div1);
-            document.querySelector("body").appendChild(div2);
+            //document.querySelector("body").appendChild(div1);
+            //document.querySelector("body").appendChild(div2);
+
+            document.getElementById("box").appendChild(div1);
+            document.getElementById("box").appendChild(div2);
 
             div1.appendChild(temp);
             div1.appendChild(p);
 
             div2.appendChild(tomorrow);
             div2.appendChild(p2);
+
+            
         })
     }
 
@@ -98,7 +104,7 @@ class meme{
 
     getMeme(){
         let q ='cat'; 
-        let tekst= document.getElementsByTagName('h1');
+        let tekst= this.temp;
     
         if (tekst === 'Mostly Cloudy'){
             q = 'clouds';
@@ -130,7 +136,8 @@ fetch(urlmeme)
             let image =`https://memegenerator.net/img/images/${imageID}.jpg`;
             
             meme.innerHTML = ` <img src= '${image}'>`;
-            document.querySelector("body").appendChild(meme);
+           
+            document.getElementById("box").appendChild(meme);
         })
 
 
