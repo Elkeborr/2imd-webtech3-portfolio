@@ -40,3 +40,46 @@ let post = ('/messages',(req,res,next)=>{
     });
 
 module.exports.post=post;
+
+//PUT
+
+let put =('/messages',(req,res)=>{
+
+let nieuw_text = req.body.text;
+let user = req.body.user;
+
+    message.findOneAndUpdate(
+        { "user" : req.body.user},
+        { $set : { "text" : nieuw_text },
+        }
+    )
+
+    res.json ({
+      "status":"YES 📤",
+      "data":{
+        "message":"help"
+      }
+    })
+   
+});
+module.exports.put=put;
+
+//DELETE
+/*
+
+
+let delete =('/messages',(req,res,next)=>{
+
+  message.findOneAndDelete(
+        { "_id"}
+        }
+    )
+
+  res.json ({
+    "status": "success", 
+    "message": "The message was removed"
+  })
+
+
+    
+});*/
