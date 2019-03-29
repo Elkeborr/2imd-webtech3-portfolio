@@ -43,7 +43,7 @@ module.exports.post=post;
 
 //PUT
 
-let put =('/messages',(req,res)=>{
+let put =('/messages/:id',(req,res)=>{
 
 let nieuw_text = req.body.text;
 let user = req.body.user;
@@ -65,21 +65,19 @@ let user = req.body.user;
 module.exports.put=put;
 
 //DELETE
-/*
 
-
-let delete =('/messages',(req,res,next)=>{
+let remove =('/messages/:id',(req,res)=>{
 
   message.findOneAndDelete(
-        { "_id"}
-        }
-    )
+    { "_id" : "" }
+ )
 
   res.json ({
     "status": "success", 
     "message": "The message was removed"
-  })
+  });
 
 
     
-});*/
+});
+module.exports.remove=remove;

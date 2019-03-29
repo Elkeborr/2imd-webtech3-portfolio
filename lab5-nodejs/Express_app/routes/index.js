@@ -18,4 +18,4 @@ router.get('/api/v1/messages', messageController.get);
 router.post('/api/v1/messages', messageController.post);
 
 //PUT
-router.put('/api/v1/messages', messageController.put);
+router.put('/api/v1/messages/:id', messageController.put);
