@@ -15,4 +15,6 @@ module.exports = router;
 router.get('/api/v1/messages', messageController.get);
 
 // POST
-router.post('/api/v1/messages', messageController.get);
+router.post('/api/v1/messages', messageController.post);
+
+//PUT
