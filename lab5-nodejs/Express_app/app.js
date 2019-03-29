@@ -1,5 +1,3 @@
-//alle "plugin" van de package file aanroepen
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -11,11 +9,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-//mongoose implementeren
+// Mongoose connectie
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/messagesdemo', {useNewUrlParser: true});
-
-
 
 
 // view engine setup

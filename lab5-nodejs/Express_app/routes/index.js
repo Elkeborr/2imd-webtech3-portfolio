@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+let messageController = require("../controllers/message")
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,11 +10,9 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-// contact leggen met controllers
-let messageController = require("../controllers/message")
 
-// GET: Message
-router.get('/messages', messageController.get);
+// GET
+router.get('/api/v1/messages', messageController.get);
 
-// POST: Message
-router.post('/messages', messageController.post);
+// POST
+router.post('/api/v1/messages', messageController.get);

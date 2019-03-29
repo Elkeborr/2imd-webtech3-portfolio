@@ -7,7 +7,7 @@ let get = ('/messages',(req,res,next)=>{
 
     message.find({},(err, docs)=>{
     res.json({
-      "status": "Whoehoe 😄",
+      "status": "YES 🤯",
       "data": {
         "messages": docs
       }
@@ -32,7 +32,7 @@ let post = ('/messages',(req,res,next)=>{
     m.save();
     
     res.json ({
-      "status":"success",
+      "status":"YES ✉️",
       "data":{
         "message": m
       }
