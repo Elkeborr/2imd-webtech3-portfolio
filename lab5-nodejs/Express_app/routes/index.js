@@ -7,3 +7,12 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+// contact leggen met controllers
+let messageController = require("../controllers/message")
+
+// GET: Message
+router.get('/messages', messageController.get);
+
+// POST: Message
+router.post('/messages', messageController.post);
