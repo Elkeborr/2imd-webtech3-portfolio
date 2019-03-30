@@ -4,7 +4,7 @@ const message = require('../models/message');
 
 // GET
 let get = ('/messages',(req,res,next)=>{
-
+  
     message.find({},(err, docs)=>{
     res.json({
       "status": "YES 🤯",
@@ -17,6 +17,26 @@ let get = ('/messages',(req,res,next)=>{
     });
 
 module.exports.get=get;
+
+// GET:ID
+
+
+let getid = ('/messages/:id',(req,res,next)=>{
+
+
+  message.find({},(err, docs)=>{
+
+  res.json({
+    "status": "YES 🤯",
+    
+      "messages": "_id"
+    
+  })
+  });
+  
+  });
+
+module.exports.getid=getid;
 
 // POST
 let post = ('/messages',(req,res,next)=>{
