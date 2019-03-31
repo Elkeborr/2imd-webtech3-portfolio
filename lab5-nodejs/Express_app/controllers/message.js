@@ -2,16 +2,17 @@
 // contact leggen met models => message
 const message = require('../models/message');
 
+
 // GET
 let get = ('/messages',(req,res,next)=>{
-  
+
     message.find({},(err, docs)=>{
+      
     res.json({
       "status": "YES 🤯",
-      "data": {
-        "messages": docs
-      }
+     "message":"GETTING messages"
     })
+  
     });
     
     });
@@ -20,16 +21,14 @@ module.exports.get=get;
 
 // GET:ID
 
-
 let getid = ('/messages/:id',(req,res,next)=>{
-
-
+  const id = message.find(req.params.id);
   message.find({},(err, docs)=>{
-
+ 
   res.json({
     "status": "YES 🤯",
     
-      "messages": "_id"
+      "messages": "GETTING message with ID "  + req.params.id
     
   })
   });
@@ -53,9 +52,8 @@ let post = ('/messages',(req,res,next)=>{
     
     res.json ({
       "status":"YES ✉️",
-      "data":{
-        "message": m
-      }
+      "message": "user " +req.body.user + "text " + req.body.text
+      
     })
     });
 
@@ -65,20 +63,21 @@ module.exports.post=post;
 
 let put =('/messages/:id',(req,res)=>{
 
+const id = message.find(req.params.id);
+
 let nieuw_text = req.body.text;
 let user = req.body.user;
 
-    message.findOneAndUpdate(
+/*    message.findOneAndUpdate(
         { "user" : req.body.user},
         { $set : { "text" : nieuw_text },
         }
     )
+    */
 
     res.json ({
       "status":"YES 📤",
-      "data":{
-        "message":"help"
-      }
+      "messages": "UPDATE message with ID "  + req.params.id
     })
    
 });
