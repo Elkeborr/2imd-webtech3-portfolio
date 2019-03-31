@@ -87,13 +87,15 @@ module.exports.put=put;
 
 let remove =('/messages/:id',(req,res)=>{
 
-  message.findOneAndDelete(
+  const id = message.find(req.params.id);
+
+ /* message.findOneAndDelete(
     { "_id" : "" }
- )
+ )*/
 
   res.json ({
     "status": "success", 
-    "message": "The message was removed"
+    "message": "DELETING a message with ID " + req.params.id
   });
 
 
