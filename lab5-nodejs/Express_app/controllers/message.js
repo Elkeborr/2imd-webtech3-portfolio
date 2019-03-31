@@ -108,12 +108,13 @@ module.exports.remove=remove;
 
 let getUsername =('/messages?user=username',(req,res)=>{
 
-  const username = message.find(req.body.user);
+  const username = message.find(req.params.user);
 
   message.find({},(err, docs)=>{
   res.json ({
     "status": "success", 
-    "message": "GETTING message for username " + req.body.user
+    "message": "GETTING message for username " + req.params.user
+
   });
 
   });
