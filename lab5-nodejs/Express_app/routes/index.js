@@ -25,4 +25,5 @@ router.put('/api/v1/messages/:id', messageController.put);
 //DELETE
 router.delete('/api/v1/messages/:id', messageController.remove);
 
-
+//GET-USERNAME
+router.get('/api/v1/messages?user=username',messageController.getUsername);

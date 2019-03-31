@@ -6,9 +6,9 @@ const message = require('../models/message');
 // GET
 let get = ('/messages',(req,res,next)=>{
 
-    message.find({},(err, docs)=>{
+ message.find({},(err, docs)=>{
       
-    res.json({
+  res.json({
       "status": "YES 🤯",
      "message":"GETTING messages"
     })
@@ -52,7 +52,7 @@ let post = ('/messages',(req,res,next)=>{
     
     res.json ({
       "status":"YES ✉️",
-      "message": "user " +req.body.user + "text " + req.body.text
+      "message": "user: " +req.body.user + " text: " + req.body.text
       
     })
     });
@@ -102,3 +102,21 @@ let remove =('/messages/:id',(req,res)=>{
     
 });
 module.exports.remove=remove;
+
+
+//GET-USERNAME
+
+let getUsername =('/messages?user=username',(req,res)=>{
+
+  const username = message.find(req.body.user);
+
+  message.find({},(err, docs)=>{
+  res.json ({
+    "status": "success", 
+    "message": "GETTING message for username " + req.body.user
+  });
+
+  });
+    
+});
+module.exports.getUsername=getUsername;
