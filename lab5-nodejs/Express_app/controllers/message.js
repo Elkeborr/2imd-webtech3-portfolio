@@ -68,13 +68,6 @@ const id = message.find(req.params.id);
 let nieuw_text = req.body.text;
 let user = req.body.user;
 
-/*    message.findOneAndUpdate(
-        { "user" : req.body.user},
-        { $set : { "text" : nieuw_text },
-        }
-    )
-    */
-
     res.json ({
       "status":"YES 📤",
       "messages": "UPDATE message with ID "  + req.params.id
@@ -88,10 +81,6 @@ module.exports.put=put;
 let remove =('/messages/:id',(req,res)=>{
 
   const id = message.find(req.params.id);
-
- /* message.findOneAndDelete(
-    { "_id" : "" }
- )*/
 
   res.json ({
     "status": "success", 
