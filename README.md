@@ -37,3 +37,8 @@
 
 [Codepen - Nodejs](https://codepen.io/elkeborr/pen/rbParq)
 
+## Link lab 6 - Websockets
+[Link lab6 ](https://github.com/Elkeborr/lab6-websockets)
+
+
+
